@@ -1,0 +1,48 @@
+.container {
+  background-color: #fff;
+  min-height: 400px;
+  min-width: 400px;
+  border-radius: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formItem {
+  padding: 10px 20px;
+  display: flex;
+}
+
+.heading {
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.btnSubmitForm {
+  background-color: #1976d2;
+  color: #fff;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 1px;
+    background-color: #1976d2;
+    color: #fff;
+  }
+}
+
+.input {
+  position: relative;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}
