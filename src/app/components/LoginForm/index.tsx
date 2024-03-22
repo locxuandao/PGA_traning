@@ -6,6 +6,7 @@ import { ILoginFormModel } from "types/Authentication";
 
 import styles from "./LoginForm.module.scss";
 import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FormControl, TextField, Button, Typography } from "@mui/material";
 import { RemoveRedEye } from "@mui/icons-material";
 
@@ -22,6 +23,7 @@ interface Props {
 
 export const LoginForm = (props: Props) => {
   const { onLoginFrame = () => {} } = props;
+  const navigate = useNavigate();
 
   const [passwordShown, setPasswordShown] = useState(false);
   const handleTogglePasswordVisiblity = () => {
@@ -47,6 +49,10 @@ export const LoginForm = (props: Props) => {
     },
     [reset],
   );
+
+  const handleNavigateRegister = useCallback(() => {
+    navigate(`/register`);
+  }, [navigate]);
 
   return (
     <div className={cx("container")}>
@@ -115,6 +121,15 @@ export const LoginForm = (props: Props) => {
             disabled={errors?.email || errors?.password ? true : false}
           >
             Đăng nhập
+          </Button>
+        </FormControl>
+
+        <FormControl className={cx("formItem")}>
+          <Button
+            className={cx("btnNavigateRegister")}
+            onClick={handleNavigateRegister}
+          >
+            Đăng kí
           </Button>
         </FormControl>
       </form>

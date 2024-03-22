@@ -45,7 +45,7 @@ export const LoginWrapper = () => {
 
   return (
     <div className={cx("container")}>
-      <div className={cx("heading")} onClick={handleNavigateHome}>
+      <div className={cx("heading")}>
         <img src={logoImg} alt="logo" className={cx("logoImg")} />
       </div>
       <LoginForm onLoginFrame={handleLogin} />
