@@ -1,8 +1,12 @@
 import axios from "axios";
 import configs from "configs";
 
-const http = axios.create({
-  baseURL: configs.apiEndpoint,
+const httpDiv4 = axios.create({
+  baseURL: configs.apiEndpointDiv4,
 });
 
-export default http;
+const httpDiv3 = axios.create({
+  baseURL: configs.apiEndpointDiv3,
+});
+
+export { httpDiv3, httpDiv4 };
