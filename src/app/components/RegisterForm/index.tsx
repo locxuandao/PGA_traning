@@ -10,6 +10,7 @@ import { Controller, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./RegisterForm.module.scss";
 import { IRegisterModel } from "types/Authentication";
@@ -40,6 +41,8 @@ interface Props {
 export const RegisterForm = (props: Props) => {
   const { onRegisterFrame = () => {} } = props;
   const [pidState, setPidState] = useState<Region | null>();
+
+  const navigate = useNavigate();
 
   const { data: regions = [], isLoading: isLoadingRegion } = useGetAllRegion();
 
@@ -72,6 +75,10 @@ export const RegisterForm = (props: Props) => {
     [reset],
   );
 
+  const handleNavigateHome = useCallback(() => {
+    navigate(`/`);
+  }, [navigate]);
+
   return (
     <div className={cx("container")}>
       <div className={cx("heading")}>
@@ -88,7 +95,7 @@ export const RegisterForm = (props: Props) => {
             render={({ field }) => (
               <TextField
                 {...field}
-                label="email"
+                label="Email"
                 variant="outlined"
                 error={!!errors.email}
                 helperText={errors.email ? errors.email?.message : ""}
@@ -107,7 +114,7 @@ export const RegisterForm = (props: Props) => {
             render={({ field }) => (
               <TextField
                 {...field}
-                label="Password"
+                label="Mật khẩu"
                 variant="outlined"
                 error={!!errors.password}
                 helperText={errors.password ? errors.password?.message : ""}
@@ -126,7 +133,7 @@ export const RegisterForm = (props: Props) => {
             render={({ field }) => (
               <TextField
                 {...field}
-                label="repeatPassword"
+                label="Nhập lại mật khẩu"
                 variant="outlined"
                 error={!!errors.repeatPassword}
                 helperText={
@@ -147,7 +154,7 @@ export const RegisterForm = (props: Props) => {
             render={({ field }) => (
               <TextField
                 {...field}
-                label="name"
+                label="Họ và tên"
                 variant="outlined"
                 error={!!errors.name}
                 helperText={errors.name ? errors.name?.message : ""}
@@ -164,7 +171,7 @@ export const RegisterForm = (props: Props) => {
             name="gender"
             render={({ field: { onChange, value } }) => (
               <Autocomplete
-                aria-placeholder="gender"
+                aria-placeholder="Giới tính"
                 onChange={(event, item) => {
                   onChange(item);
                 }}
@@ -175,7 +182,7 @@ export const RegisterForm = (props: Props) => {
                 renderInput={params => (
                   <TextField
                     {...params}
-                    label="Gender"
+                    label="Giới tính"
                     error={!!errors.gender}
                     helperText={errors.gender ? errors.gender?.message : ""}
                   />
@@ -191,7 +198,7 @@ export const RegisterForm = (props: Props) => {
             name="region"
             render={({ field: { onChange, value } }) => (
               <Autocomplete
-                aria-placeholder="Region"
+                aria-placeholder="Quốc gia"
                 onChange={(event, item) => {
                   onChange(item);
                   setPidState(item);
@@ -208,7 +215,7 @@ export const RegisterForm = (props: Props) => {
                 renderInput={params => (
                   <TextField
                     {...params}
-                    label="Region"
+                    label="Quốc gia"
                     error={!!errors.region}
                     helperText={errors.region ? errors.region?.message : ""}
                   />
@@ -224,7 +231,7 @@ export const RegisterForm = (props: Props) => {
             name="state"
             render={({ field: { onChange, value } }) => (
               <Autocomplete
-                aria-placeholder="State"
+                aria-placeholder="Thành phố"
                 onChange={(event, item) => {
                   onChange(item);
                 }}
@@ -236,7 +243,7 @@ export const RegisterForm = (props: Props) => {
                 renderInput={params => (
                   <TextField
                     {...params}
-                    label="State"
+                    label="Thành phố"
                     error={!!errors.state}
                     helperText={errors.state ? errors.state?.message : ""}
                   />
@@ -251,6 +258,14 @@ export const RegisterForm = (props: Props) => {
             onClick={handleSubmit(handleChangeData)}
           >
             Đăng kí
+          </Button>
+        </FormControl>
+        <FormControl className={cx("formItem")}>
+          <Button
+            className={cx("btnNavigateLogin")}
+            onClick={handleNavigateHome}
+          >
+            Quay lại
           </Button>
         </FormControl>
       </form>
