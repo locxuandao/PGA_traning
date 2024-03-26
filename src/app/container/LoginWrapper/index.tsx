@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import { enqueueSnackbar } from "notistack";
 
 import { LoginForm } from "app/components/LoginForm";
@@ -13,12 +12,7 @@ import { ILoginFormModel } from "types/Authentication";
 const cx = classNames.bind(styles);
 
 export const LoginWrapper = () => {
-  const navigate = useNavigate();
   const { mutateAsync } = useLogin();
-
-  const handleNavigateHome = useCallback(() => {
-    navigate(`/`);
-  }, [navigate]);
 
   const handleLogin = useCallback((data: ILoginFormModel) => {
     (async () => {
@@ -27,16 +21,10 @@ export const LoginWrapper = () => {
           email: data.email,
           password: data.password,
         });
-        if (token?.success == false) {
-          enqueueSnackbar("sai tên đang nhập hoặc mật khẩu", {
-            variant: "error",
-          });
-        } else {
-          setTokens(token?.user);
-          handleNavigateHome();
-        }
+        setTokens(token);
+        window.location.reload();
       } catch (error) {
-        enqueueSnackbar("lỗi chương trình", {
+        enqueueSnackbar("Sai tên đăng nhập hoặc mật khẩu", {
           variant: "error",
         });
       }
