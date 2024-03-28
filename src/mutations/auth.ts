@@ -1,9 +1,9 @@
 import { useMutation } from "react-query";
 import { login, register } from "service/auth";
-import { ILoginFormModel, IRegisterModel } from "types/Authentication";
+import { LoginFormModel, RegisterModel } from "types/Authentication";
 
 export const useLogin = () =>
-  useMutation((payload: ILoginFormModel) => login(payload));
+  useMutation((payload: LoginFormModel) => login(payload));
 
 export const useRegister = () =>
-  useMutation((payload: IRegisterModel) => register(payload));
+  useMutation((payload: RegisterModel) => register(payload));

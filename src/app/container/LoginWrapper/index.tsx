@@ -7,14 +7,14 @@ import logoImg from "assets/imgs/logo.jpg";
 import styles from "./LoginWrapper.module.scss";
 import { setTokens } from "utils/storage";
 import { useLogin } from "mutations/auth";
-import { ILoginFormModel } from "types/Authentication";
+import { LoginFormModel } from "types/Authentication";
 
 const cx = classNames.bind(styles);
 
 export const LoginWrapper = () => {
   const { mutateAsync } = useLogin();
 
-  const handleLogin = useCallback((data: ILoginFormModel) => {
+  const handleLogin = useCallback((data: LoginFormModel) => {
     (async () => {
       try {
         const token = await mutateAsync({

@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.table {
+  max-width: 1150px;
+  padding: 20px;
+}
+
+.heading {
+  padding-bottom: 20px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.deleteBtn {
+  color: red;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 5%;
+  }
+}
+
+.filterHead {
+  display: flex;
+  align-items: center;
+}
+
+.itemInput {
+  margin-right: 30px;
+}
+
+.btnApply {
+  padding: 10px 20px;
+  border: 1px solid rgb(93, 93, 234);
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.btnClear {
+  padding: 10px 20px;
+  border: 1px solid red;
+  color: red;
+}
+
+.contentDialog {
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(67, 67, 238);
+}
+
+.clearIcon {
+  margin-top: 10px;
+  margin-right: 10px;
+
+  &:hover {
+    cursor: pointer;
+    color: red;
+  }
+}
+
+.pending {
+  color: #9a5e5e;
+}
+
+.processing {
+  color: orange;
+}
+
+.fulfilled {
+  color: rgb(16, 195, 16);
+}
+
+.received {
+  color: rgb(74, 74, 237);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.key {
+  font-size: 18px;
+}
+
+.value {
+  margin-left: 5px;
+}
+
+.productDetail {
+  padding-left: 10px;
+}
+
+.loading {
+  margin-top: 5px;
+}
+
+.contenDialogDelete {
+  min-width: 330px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleDialog {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.btnDialog {
+  width: 90px;
+  height: 50px;
+  margin: 0 20px;
+}

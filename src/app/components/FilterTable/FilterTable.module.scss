@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.itemInput {
+  margin-right: 30px;
+}
+
+.btnApply {
+  padding: 10px 20px;
+  border: 1px solid rgb(93, 93, 234);
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.btnClear {
+  padding: 10px 20px;
+  border: 1px solid red;
+  color: red;
+}
