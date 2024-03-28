@@ -13,7 +13,7 @@ import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./RegisterForm.module.scss";
-import { IRegisterModel } from "types/Authentication";
+import { RegisterModel } from "types/Authentication";
 import { Region } from "types/Region";
 
 import { useGetAllRegion } from "queries/region";
@@ -35,7 +35,7 @@ const newRegisterSchema = Yup.object().shape({
 });
 
 interface Props {
-  onRegisterFrame?: (data: IRegisterModel) => void;
+  onRegisterFrame?: (data: RegisterModel) => void;
 }
 
 export const RegisterForm = (props: Props) => {
@@ -53,7 +53,7 @@ export const RegisterForm = (props: Props) => {
     control,
     formState: { errors },
     reset,
-  } = useForm<IRegisterModel>({
+  } = useForm<RegisterModel>({
     resolver: yupResolver(newRegisterSchema),
     defaultValues: {
       email: undefined,
@@ -67,7 +67,7 @@ export const RegisterForm = (props: Props) => {
   });
 
   const handleChangeData = useCallback(
-    (data: IRegisterModel) => {
+    (data: RegisterModel) => {
       onRegisterFrame({
         ...data,
       });

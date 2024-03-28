@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btnNavigate {
+  background-color: #1976d2;
+  padding: 10px;
+  color: #fff;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 1px;
+    background-color: #1976d2;
+    color: #fff;
+  }
+
+  margin: 0 16px;
+}

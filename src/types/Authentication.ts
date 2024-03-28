@@ -1,12 +1,12 @@
 import { Region } from "./Region";
 import { State } from "./State";
 
-export interface ILoginFormModel {
+export interface LoginFormModel {
   email: string;
   password: string;
 }
 
-export interface IRegisterModel {
+export interface RegisterModel {
   email: string;
   password: string;
   repeatPassword: string;

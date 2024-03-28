@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { ILoginFormModel } from "types/Authentication";
+import { LoginFormModel } from "types/Authentication";
 
 import styles from "./LoginForm.module.scss";
 import { useCallback, useState } from "react";
@@ -18,7 +18,7 @@ const newLoginSchema = Yup.object().shape({
 });
 
 interface Props {
-  onLoginFrame?: (data: ILoginFormModel) => void;
+  onLoginFrame?: (data: LoginFormModel) => void;
 }
 
 export const LoginForm = (props: Props) => {
@@ -35,7 +35,7 @@ export const LoginForm = (props: Props) => {
     control,
     formState: { errors },
     reset,
-  } = useForm<ILoginFormModel>({
+  } = useForm<LoginFormModel>({
     resolver: yupResolver(newLoginSchema),
     defaultValues: {
       email: undefined,
@@ -44,7 +44,7 @@ export const LoginForm = (props: Props) => {
   });
 
   const handleChangeData = useCallback(
-    (data: ILoginFormModel) => {
+    (data: LoginFormModel) => {
       onLoginFrame({ ...data });
     },
     [reset],
